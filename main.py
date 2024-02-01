@@ -21,8 +21,6 @@ class PeopleCounter(Resource):
 
         return {'count': len(boxes)}
 
-
-
 class HelloWorld(Resource):
     def get(self):
         return {'hello': 'world'}
