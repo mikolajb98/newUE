@@ -2,6 +2,7 @@ from flask import Flask
 from flask_restful import Resource, Api
 import cv2
 
+
 app = Flask(__name__)
 api = Api(app)
 
@@ -18,8 +19,8 @@ class PeopleCounter(Resource):
         boxes, weights = hog.detectMultiScale(img, winStride=(4, 4))
         # winStride zmiana tego parametru zwieksza/zmnijsza dokladnsosc
         # - im mniejsza tym dokladniej lczy przesuniecie okienka
-
         return {'count': len(boxes)}
+
 
 class HelloWorld(Resource):
     def get(self):
@@ -28,6 +29,7 @@ class HelloWorld(Resource):
 
 api.add_resource(HelloWorld, '/test')  # endpoint test
 api.add_resource(PeopleCounter, '/')  # endpoint main
+
 
 if __name__ == '__main__':
     app.run(debug=True)
